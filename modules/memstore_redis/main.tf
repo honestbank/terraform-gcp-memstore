@@ -14,8 +14,8 @@ resource "google_redis_instance" "cache" {
 
   auth_enabled = true
 
-  location_id = "${var.region}-${var.zone}"
-  #alternative_location_id = "${var.region}-${var.zone}"
+  location_id             = "${var.region}-${var.zone}"
+  alternative_location_id = "${var.region}-${var.alternative_zone}"
 
   replica_count      = var.tier == "STANDARD_HA" ? var.replicas : null
   read_replicas_mode = var.read_replicas_enabled ? "READ_REPLICAS_ENABLED" : "READ_REPLICAS_DISABLED"

@@ -25,6 +25,7 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_alternative_zone"></a> [alternative\_zone](#input\_alternative\_zone) | The location to create the instance in | `string` | n/a | yes |
 | <a name="input_encryption"></a> [encryption](#input\_encryption) | Whether to enable encryption | `bool` | `true` | no |
 | <a name="input_memory_size"></a> [memory\_size](#input\_memory\_size) | The size of the memory for the instance | `string` | `"2"` | no |
 | <a name="input_name"></a> [name](#input\_name) | The name of the resource | `string` | n/a | yes |

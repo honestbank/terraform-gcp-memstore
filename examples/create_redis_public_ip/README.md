@@ -15,8 +15,9 @@
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_google_compute_global_address_private_ip_address"></a> [google\_compute\_global\_address\_private\_ip\_address](#module\_google\_compute\_global\_address\_private\_ip\_address) | git::https://github.com/honestbank/terraform-gcp-sql.git//modules/google_compute_global_address | v1.0.2 |
-| <a name="module_private_network"></a> [private\_network](#module\_private\_network) | git::https://github.com/honestbank/terraform-gcp-sql.git//modules/google_compute_network | v1.0.2 |
+| <a name="module_google_compute_global_address_private_ip_address"></a> [google\_compute\_global\_address\_private\_ip\_address](#module\_google\_compute\_global\_address\_private\_ip\_address) | git::https://github.com/honestbank/terraform-gcp-sql.git//modules/google_compute_global_address | v1.1.1 |
+| <a name="module_google_service_networking_connection_private_vpc_connection"></a> [google\_service\_networking\_connection\_private\_vpc\_connection](#module\_google\_service\_networking\_connection\_private\_vpc\_connection) | git::https://github.com/honestbank/terraform-gcp-sql.git//modules/google_service_networking_connection | v1.1.1 |
+| <a name="module_private_network"></a> [private\_network](#module\_private\_network) | git::https://github.com/honestbank/terraform-gcp-sql.git//modules/google_compute_network | v1.1.1 |
 | <a name="module_redis_instance"></a> [redis\_instance](#module\_redis\_instance) | ../../modules/memstore_redis | n/a |
 
 ## Resources
