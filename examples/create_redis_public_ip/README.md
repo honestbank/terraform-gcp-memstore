@@ -7,18 +7,23 @@
 
 ## Providers
 
-No providers.
+| Name | Version |
+|------|---------|
+| <a name="provider_random"></a> [random](#provider\_random) | 3.1.2 |
 
 ## Modules
 
 | Name | Source | Version |
 |------|--------|---------|
+| <a name="module_google_compute_global_address_private_ip_address"></a> [google\_compute\_global\_address\_private\_ip\_address](#module\_google\_compute\_global\_address\_private\_ip\_address) | git::https://github.com/honestbank/terraform-gcp-sql.git//modules/google_compute_global_address | v1.0.2 |
+| <a name="module_private_network"></a> [private\_network](#module\_private\_network) | git::https://github.com/honestbank/terraform-gcp-sql.git//modules/google_compute_network | v1.0.2 |
 | <a name="module_redis_instance"></a> [redis\_instance](#module\_redis\_instance) | ../../modules/memstore_redis | n/a |
-| <a name="module_sql_google_compute_network"></a> [sql\_google\_compute\_network](#module\_sql\_google\_compute\_network) | app.terraform.io/honestbank/sql/gcp//modules/google_compute_network | 1.0.2 |
 
 ## Resources
 
-No resources.
+| Name | Type |
+|------|------|
+| [random_id.instance_suffix](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/id) | resource |
 
 ## Inputs
 
@@ -32,5 +37,10 @@ No resources.
 
 | Name | Description |
 |------|-------------|
+| <a name="output_host"></a> [host](#output\_host) | The IP address of the Redis instance. |
 | <a name="output_id"></a> [id](#output\_id) | n/a |
+| <a name="output_name"></a> [name](#output\_name) | The name of the Redis instance. |
+| <a name="output_port"></a> [port](#output\_port) | The port of the Redis instance. |
+| <a name="output_read_endpoint"></a> [read\_endpoint](#output\_read\_endpoint) | The IP address of the Redis instance. |
+| <a name="output_read_endpoint_port"></a> [read\_endpoint\_port](#output\_read\_endpoint\_port) | The port of the Redis instance. |
 <!-- END_TF_DOCS -->

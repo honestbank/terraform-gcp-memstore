@@ -21,12 +21,13 @@ resource "google_redis_instance" "cache" {
   read_replicas_mode = var.read_replicas_enabled ? "READ_REPLICAS_ENABLED" : "READ_REPLICAS_DISABLED"
 
   authorized_network = var.network_id
+  connect_mode       = "PRIVATE_SERVICE_ACCESS"
 
   transit_encryption_mode = var.encryption ? "SERVER_AUTHENTICATION" : "DISABLED"
 
 
   redis_version     = var.redis_version
   display_name      = var.name
-  reserved_ip_range = var.reserved_ip_range
+  reserved_ip_range = var.reserved_ip_range != null ? var.reserved_ip_range : null
 
 }
