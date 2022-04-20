@@ -7,24 +7,47 @@ terraform {
   }
 }
 
-module "sql_google_compute_network" {
-  source  = "git::https://github.com/honestbank/terraform-gcp-sql.git//modules/google_compute_network?ref=v1.0.2"
-  name    = "test-network-terraform"
+
+resource "random_id" "instance_suffix" {
+  byte_length = 4
+}
+
+module "private_network" {
+  source = "git::https://github.com/honestbank/terraform-gcp-sql.git//modules/google_compute_network?ref=v1.1.1"
+  name   = "test-redis-terraform-${random_id.instance_suffix.hex}"
+}
+
+module "google_compute_global_address_private_ip_address" {
+  source = "git::https://github.com/honestbank/terraform-gcp-sql.git//modules/google_compute_global_address?ref=v1.1.1"
+
+  name          = "redis-pip-${random_id.instance_suffix.hex}"
+  purpose       = "VPC_PEERING"
+  address_type  = "INTERNAL"
+  prefix_length = 16
+  network       = module.private_network.id
+}
+
+module "google_service_networking_connection_private_vpc_connection" {
+  source = "git::https://github.com/honestbank/terraform-gcp-sql.git//modules/google_service_networking_connection?ref=v1.1.1"
+
+  network                 = module.private_network.id
+  service                 = "servicenetworking.googleapis.com"
+  reserved_peering_ranges = [module.google_compute_global_address_private_ip_address.name]
 }
 
 module "redis_instance" {
-  source = "../../modules/memstore_redis"
+  source      = "../../modules/memstore_redis"
+  memory_size = 5
 
-  name   = "redis test instance"
-  region = "asia-southeast2"
-  zone   = "a"
+  depends_on = [module.google_service_networking_connection_private_vpc_connection]
 
-  redis_version = "REDIS_6_X"
-
-  network_id = module.sql_google_compute_network.id
-
-
-  reserved_ip_range = "192.168.9.0/28"
-
-  tier = "BASIC"
+  name                  = "redis-test-${random_id.instance_suffix.hex}"
+  region                = "asia-southeast2"
+  zone                  = "a"
+  alternative_zone      = "b"
+  redis_version         = "REDIS_6_X"
+  network_id            = module.private_network.id
+  tier                  = "STANDARD_HA"
+  replicas              = 1
+  read_replicas_enabled = true
 }

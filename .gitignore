@@ -463,3 +463,7 @@ lint/tmp/
 !/.idea/runConfigurations/
 !/.idea/runConfigurations.xml
 /config/quality/lint/report/consumer-lint.html
+
+# ignore checkov external modules
+.external_modules
+**/.tfsec
