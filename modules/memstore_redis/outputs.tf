@@ -29,7 +29,7 @@ output "read_endpoint_port" {
 
 output "server_ca_certificates" {
   value       = google_redis_instance.cache.server_ca_certs
-  description = "The server CA certificates of the Redis instance, return serial_number, cert, create_time, expire_time, sha1_fingerprint."
+  description = "The server CA certificates of the Redis instance (as a list of blocks), return serial_number, cert, create_time, expire_time, sha1_fingerprint (https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/redis_instance#server_ca_certs)."
 }
 
 output "auth_string" {

@@ -49,5 +49,5 @@ No modules.
 | <a name="output_port"></a> [port](#output\_port) | The port of the Redis instance. |
 | <a name="output_read_endpoint"></a> [read\_endpoint](#output\_read\_endpoint) | The IP address of the Redis instance. |
 | <a name="output_read_endpoint_port"></a> [read\_endpoint\_port](#output\_read\_endpoint\_port) | The port of the Redis instance. |
-| <a name="output_server_ca_certificates"></a> [server\_ca\_certificates](#output\_server\_ca\_certificates) | The server CA certificates of the Redis instance, return serial\_number, cert, create\_time, expire\_time, sha1\_fingerprint. |
+| <a name="output_server_ca_certificates"></a> [server\_ca\_certificates](#output\_server\_ca\_certificates) | The server CA certificates of the Redis instance (as a list of blocks), return serial\_number, cert, create\_time, expire\_time, sha1\_fingerprint (https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/redis_instance#server_ca_certs). |
 <!-- END_TF_DOCS -->
