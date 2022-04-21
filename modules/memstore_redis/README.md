@@ -42,10 +42,12 @@ No modules.
 
 | Name | Description |
 |------|-------------|
+| <a name="output_auth_string"></a> [auth\_string](#output\_auth\_string) | The auth string of the Redis instance. |
 | <a name="output_host"></a> [host](#output\_host) | The IP address of the Redis instance. |
 | <a name="output_id"></a> [id](#output\_id) | The ID of the Redis instance. |
 | <a name="output_name"></a> [name](#output\_name) | The name of the Redis instance. |
 | <a name="output_port"></a> [port](#output\_port) | The port of the Redis instance. |
 | <a name="output_read_endpoint"></a> [read\_endpoint](#output\_read\_endpoint) | The IP address of the Redis instance. |
 | <a name="output_read_endpoint_port"></a> [read\_endpoint\_port](#output\_read\_endpoint\_port) | The port of the Redis instance. |
+| <a name="output_server_ca_certificates"></a> [server\_ca\_certificates](#output\_server\_ca\_certificates) | The server CA certificates of the Redis instance, return serial\_number, cert, create\_time, expire\_time, sha1\_fingerprint. |
 <!-- END_TF_DOCS -->

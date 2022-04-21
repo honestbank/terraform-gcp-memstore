@@ -26,3 +26,13 @@ output "read_endpoint_port" {
   value       = google_redis_instance.cache.read_endpoint_port
   description = "The port of the Redis instance."
 }
+
+output "server_ca_certificates" {
+  value       = google_redis_instance.cache.server_ca_certs
+  description = "The server CA certificates of the Redis instance, return serial_number, cert, create_time, expire_time, sha1_fingerprint."
+}
+
+output "auth_string" {
+  value       = google_redis_instance.cache.auth_string
+  description = "The auth string of the Redis instance."
+}

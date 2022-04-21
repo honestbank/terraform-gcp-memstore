@@ -11,8 +11,7 @@ resource "google_redis_instance" "cache" {
   name           = replace(var.name, " ", "-")
   tier           = var.tier
   memory_size_gb = var.memory_size
-
-  auth_enabled = true
+  auth_enabled   = true
 
   location_id             = "${var.region}-${var.zone}"
   alternative_location_id = "${var.region}-${var.alternative_zone}"
