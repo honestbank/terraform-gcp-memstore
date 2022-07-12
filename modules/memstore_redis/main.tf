@@ -1,8 +1,9 @@
 terraform {
   required_providers {
     google = {
-      source  = "hashicorp/google"
-      version = "~> 4.0"
+      source = "hashicorp/google"
+      # because `replica_count` and `read_replicas_mode` require v4.16.0 for `hashicorp/google`, before 4.16.0 need `hashicorp/google-beta`
+      version = ">= 4.16.0"
     }
   }
 }
@@ -16,7 +17,7 @@ resource "google_redis_instance" "cache" {
   location_id             = "${var.region}-${var.zone}"
   alternative_location_id = "${var.region}-${var.alternative_zone}"
 
-  replica_count      = var.tier == "STANDARD_HA" ? var.replicas : null
+  replica_count      = var.tier == "STANDARD_HA" ? var.replicas : 0
   read_replicas_mode = var.read_replicas_enabled ? "READ_REPLICAS_ENABLED" : "READ_REPLICAS_DISABLED"
 
   authorized_network = var.network_id
