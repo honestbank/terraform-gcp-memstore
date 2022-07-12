@@ -33,6 +33,9 @@ func TestTerraformCreateGCPSQL(t *testing.T) {
 		output = terraform.Output(t, terraformOptions, "id")
 		assert.NotEmpty(t, output)
 
+		output = terraform.Output(t, terraformOptions, "second_id")
+		assert.NotEmpty(t, output)
+
 		output = terraform.Output(t, terraformOptions, "name")
 		assert.NotEmpty(t, output)
 
