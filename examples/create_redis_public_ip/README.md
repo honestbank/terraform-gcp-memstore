@@ -19,7 +19,6 @@
 | <a name="module_google_service_networking_connection_private_vpc_connection"></a> [google\_service\_networking\_connection\_private\_vpc\_connection](#module\_google\_service\_networking\_connection\_private\_vpc\_connection) | git::https://github.com/honestbank/terraform-gcp-sql.git//modules/google_service_networking_connection | v1.1.1 |
 | <a name="module_private_network"></a> [private\_network](#module\_private\_network) | git::https://github.com/honestbank/terraform-gcp-sql.git//modules/google_compute_network | v1.1.1 |
 | <a name="module_redis_instance"></a> [redis\_instance](#module\_redis\_instance) | ../../modules/memstore_redis | n/a |
-| <a name="module_redis_instance_without_replicas"></a> [redis\_instance\_without\_replicas](#module\_redis\_instance\_without\_replicas) | ../../modules/memstore_redis | n/a |
 
 ## Resources
 
@@ -45,5 +44,4 @@
 | <a name="output_port"></a> [port](#output\_port) | The port of the Redis instance. |
 | <a name="output_read_endpoint"></a> [read\_endpoint](#output\_read\_endpoint) | The IP address of the Redis instance. |
 | <a name="output_read_endpoint_port"></a> [read\_endpoint\_port](#output\_read\_endpoint\_port) | The port of the Redis instance. |
-| <a name="output_second_id"></a> [second\_id](#output\_second\_id) | n/a |
 <!-- END_TF_DOCS -->

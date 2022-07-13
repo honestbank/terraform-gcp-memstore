@@ -2,10 +2,6 @@ output "id" {
   value = module.redis_instance.id
 }
 
-output "second_id" {
-  value = module.redis_instance_without_replicas.id
-}
-
 output "name" {
   value       = module.redis_instance.name
   description = "The name of the Redis instance."

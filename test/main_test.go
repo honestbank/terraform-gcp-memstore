@@ -8,10 +8,10 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestTerraformCreateGCPSQL(t *testing.T) {
+func TestTerraformCreateGCPMemstore(t *testing.T) {
 	t.Parallel()
 
-	t.Run("create mysql with public ip", func(t *testing.T) {
+	t.Run("create redis with public ip", func(t *testing.T) {
 		t.Parallel()
 
 		testDirectory := test_structure.CopyTerraformFolderToTemp(t, "..", "examples/create_redis_public_ip")
@@ -31,9 +31,6 @@ func TestTerraformCreateGCPSQL(t *testing.T) {
 		var output string
 
 		output = terraform.Output(t, terraformOptions, "id")
-		assert.NotEmpty(t, output)
-
-		output = terraform.Output(t, terraformOptions, "second_id")
 		assert.NotEmpty(t, output)
 
 		output = terraform.Output(t, terraformOptions, "name")

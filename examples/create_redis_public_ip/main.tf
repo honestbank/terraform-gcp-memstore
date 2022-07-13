@@ -51,20 +51,3 @@ module "redis_instance" {
   replicas              = 1
   read_replicas_enabled = true
 }
-
-module "redis_instance_without_replicas" {
-  source      = "../../modules/memstore_redis"
-  memory_size = 5
-
-  depends_on = [module.google_service_networking_connection_private_vpc_connection]
-
-  name                  = "redis-test-no-${random_id.instance_suffix.hex}"
-  region                = "asia-southeast2"
-  zone                  = "a"
-  alternative_zone      = "b"
-  redis_version         = "REDIS_6_X"
-  network_id            = module.private_network.id
-  tier                  = "BASIC"
-  replicas              = 1
-  read_replicas_enabled = false
-}
