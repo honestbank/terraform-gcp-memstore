@@ -8,10 +8,10 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestTerraformCreateGCPSQL(t *testing.T) {
+func TestTerraformCreateGCPMemstore(t *testing.T) {
 	t.Parallel()
 
-	t.Run("create mysql with public ip", func(t *testing.T) {
+	t.Run("create redis with public ip", func(t *testing.T) {
 		t.Parallel()
 
 		testDirectory := test_structure.CopyTerraformFolderToTemp(t, "..", "examples/create_redis_public_ip")

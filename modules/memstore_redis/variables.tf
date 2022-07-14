@@ -51,6 +51,10 @@ variable "replicas" {
   type        = number
   default     = 1
   description = "The number of instances to create"
+  validation {
+    condition     = var.replicas >= 1 && var.replicas <= 5
+    error_message = "The valid range for the Standard Tier with read replicas enabled is [1-5] and defaults to 1."
+  }
 }
 
 variable "read_replicas_enabled" {
