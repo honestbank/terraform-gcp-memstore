@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: terraform-gcp-memstore
+  description: Terraform module for creating Memorystore in Google Cloud Platform
+  annotations:
+    github.com/project-slug: honestbank/terraform-gcp-memstore
+    github.com/team-slug: honestbank/devops-engineers
+spec:
+  type: tf-module
+  lifecycle: prod
+  system: infrastructure
+  owner: group:devops-engineers
+  dependencyOf:
+    - resource:storage-infrastructure
