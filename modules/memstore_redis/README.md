@@ -9,7 +9,7 @@
 
 | Name | Version |
 |------|---------|
-| <a name="provider_google"></a> [google](#provider\_google) | 4.29.0 |
+| <a name="provider_google"></a> [google](#provider\_google) | 5.38.0 |
 
 ## Modules
 
@@ -33,7 +33,7 @@ No modules.
 | <a name="input_read_replicas_enabled"></a> [read\_replicas\_enabled](#input\_read\_replicas\_enabled) | Whether to enable read replicas | `bool` | `false` | no |
 | <a name="input_redis_version"></a> [redis\_version](#input\_redis\_version) | The version of Redis to use | `string` | n/a | yes |
 | <a name="input_region"></a> [region](#input\_region) | The region to create the instance in | `string` | `"asia-southeast2"` | no |
-| <a name="input_replicas"></a> [replicas](#input\_replicas) | The number of instances to create | `number` | `1` | no |
+| <a name="input_replicas"></a> [replicas](#input\_replicas) | The number of read replicas to create | `number` | `0` | no |
 | <a name="input_reserved_ip_range"></a> [reserved\_ip\_range](#input\_reserved\_ip\_range) | The reserved IP range to use for the instance | `string` | `null` | no |
 | <a name="input_tier"></a> [tier](#input\_tier) | The tier of the instance | `string` | n/a | yes |
 | <a name="input_zone"></a> [zone](#input\_zone) | The location to create the instance in | `string` | n/a | yes |

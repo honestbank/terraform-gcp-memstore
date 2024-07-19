@@ -40,7 +40,6 @@ variable "reserved_ip_range" {
   description = "The reserved IP range to use for the instance"
 }
 
-
 variable "memory_size" {
   type        = string
   default     = "2"
@@ -49,11 +48,11 @@ variable "memory_size" {
 
 variable "replicas" {
   type        = number
-  default     = 1
-  description = "The number of instances to create"
+  default     = 0
+  description = "The number of read replicas to create"
   validation {
-    condition     = var.replicas >= 1 && var.replicas <= 5
-    error_message = "The valid range for the Standard Tier with read replicas enabled is [1-5] and defaults to 1."
+    condition     = var.replicas <= 5
+    error_message = "The valid range for the Standard Tier with read replicas enabled is [1-5] and defaults to 0 as the default is zero read-replicas."
   }
 }
 
