@@ -11,13 +11,13 @@ terraform {
 resource "google_redis_instance" "cache" {
   name           = replace(var.name, " ", "-")
   tier           = var.tier
-  memory_size_gb = var.memory_size
+  memory_size_gb = local.memory_size
   auth_enabled   = true
 
   location_id             = "${var.region}-${var.zone}"
   alternative_location_id = var.tier == "STANDARD_HA" ? "${var.region}-${var.alternative_zone}" : ""
 
-  replica_count      = var.tier == "STANDARD_HA" ? var.replicas : 0
+  replica_count      = local.replica_count
   read_replicas_mode = var.read_replicas_enabled ? "READ_REPLICAS_ENABLED" : "READ_REPLICAS_DISABLED"
 
   authorized_network = var.network_id

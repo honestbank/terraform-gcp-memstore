@@ -13,11 +13,14 @@ resource "random_id" "instance_suffix" {
 }
 
 module "private_network" {
+  #checkov:skip=CKV_TF_1:We use the version tag instead of the commit hash
+  #checkov:skip=CKV2_GCP_18:We ignore the creation of firewall rules
   source = "git::https://github.com/honestbank/terraform-gcp-sql.git//modules/google_compute_network?ref=v1.1.1"
   name   = "test-redis-terraform-${random_id.instance_suffix.hex}"
 }
 
 module "google_compute_global_address_private_ip_address" {
+  #checkov:skip=CKV_TF_1:We use the version tag instead of the commit hash
   source = "git::https://github.com/honestbank/terraform-gcp-sql.git//modules/google_compute_global_address?ref=v1.1.1"
 
   name          = "redis-pip-${random_id.instance_suffix.hex}"
@@ -28,6 +31,7 @@ module "google_compute_global_address_private_ip_address" {
 }
 
 module "google_service_networking_connection_private_vpc_connection" {
+  #checkov:skip=CKV_TF_1:We use the version tag instead of the commit hash
   source = "git::https://github.com/honestbank/terraform-gcp-sql.git//modules/google_service_networking_connection?ref=v1.1.1"
 
   network                 = module.private_network.id
