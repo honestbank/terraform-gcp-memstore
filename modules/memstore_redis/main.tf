@@ -36,7 +36,7 @@ resource "google_redis_instance" "cache" {
       error_message = "Read replicas cannot be enabled with less than 5GB of memory."
     }
     precondition {
-      condition     = ((var.tier == "BASIC" && (var.replicas != 0 || var.read_replicas_enabled)) || var.tier == "STANDARD_HA")
+      condition     = ((var.tier == "BASIC" && var.replicas == 0 && var.read_replicas_enabled == false) || var.tier == "STANDARD_HA")
       error_message = "Read replicas are not supported on the BASIC tier."
     }
     precondition {
