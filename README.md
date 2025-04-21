@@ -21,7 +21,7 @@ that is configured to produce releases on merge to `main`.
 
 ### GitHub Actions
 
-This template contains [a 'terraform' action/workflow](./.github/workflows/terraform.yml) that is configured to run on
+This template contains [a 'terraform' action/workflow](./.github/workflows/terraform.yaml) that is configured to run on
 PRs and pushes to `main` and is designed around a [Trunk-Based Development](https://trunkbaseddevelopment.com) workflow.
 
 <!-- BEGIN_TF_DOCS -->
