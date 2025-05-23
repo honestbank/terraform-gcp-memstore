@@ -40,8 +40,14 @@ resource "google_redis_instance" "cache" {
       error_message = "Read replicas are not supported on the BASIC tier."
     }
     precondition {
-      condition     = (var.read_replicas_enabled && var.replicas > 0) || (var.replicas == 0 && var.read_replicas_enabled == false)
-      error_message = "You require at least 1 read replica if read replicas are enabled."
+      condition = (
+        (var.read_replicas_enabled && var.replicas > 0)
+        || (!var.read_replicas_enabled && (
+          (var.tier == "STANDARD_HA" && var.replicas == 1)
+          || (var.tier == "BASIC" && var.replicas == 0)
+        ))
+      )
+      error_message = "Invalid replica configuration: If read replicas are enabled, at least 1 replica is required. If read replicas are disabled, replicas must be 0 for BASIC tier or 1 for STANDARD_HA."
     }
   }
 }
