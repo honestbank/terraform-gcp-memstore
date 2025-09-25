@@ -72,3 +72,22 @@ variable "encryption" {
   default     = true
   description = "Whether to enable encryption"
 }
+
+variable "maintenance" {
+  description = "Optional weekly maintenance window (UTC). Omit to let GCP choose."
+  type = object({
+    day     = string # e.g., "MONDAY"
+    hours   = number # 0..23
+    minutes = number # 0..59
+  })
+  default = null
+
+  validation {
+    condition = var.maintenance == null || (
+      contains(["MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY", "SUNDAY"], upper(var.maintenance.day)) &&
+      var.maintenance.hours >= 0 && var.maintenance.hours <= 23 &&
+      var.maintenance.minutes >= 0 && var.maintenance.minutes <= 59
+    )
+    error_message = "maintenance: day must be MONDAY..SUNDAY; time must be a valid UTC time."
+  }
+}

@@ -30,6 +30,21 @@ resource "google_redis_instance" "cache" {
   display_name      = var.name
   reserved_ip_range = var.reserved_ip_range != null ? var.reserved_ip_range : null
 
+  dynamic "maintenance_policy" {
+    for_each = var.maintenance == null ? [] : [var.maintenance]
+    content {
+      weekly_maintenance_window {
+        day = upper(maintenance_policy.value.day)
+        start_time {
+          hours   = maintenance_policy.value.hours
+          minutes = maintenance_policy.value.minutes
+          seconds = 0
+          nanos   = 0
+        }
+      }
+    }
+  }
+
   lifecycle {
     precondition {
       condition     = (var.read_replicas_enabled && var.memory_size >= 5) || var.read_replicas_enabled == false
