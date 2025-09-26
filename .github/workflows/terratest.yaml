@@ -9,6 +9,8 @@ env:
   AWS_SECRET_KEY: ${{ secrets.TERRATEST_AWS_SECRET_ACCESS_KEY }}
   AWS_DEFAULT_REGION: ${{ secrets.TERRATEST_AWS_REGION }}
   AWS_REGION: ${{ secrets.TERRATEST_AWS_REGION }}
+  TF_VAR_google_project: ${{ secrets.TERRATEST_GOOGLE_PROJECT }}
+  TF_VAR_google_credentials: ${{ secrets.TERRATEST_GOOGLE_CREDENTIALS }}
 jobs:
   terratest:
     name: terratest
