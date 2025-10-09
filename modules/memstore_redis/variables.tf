@@ -83,11 +83,11 @@ variable "maintenance" {
   default = null
 
   validation {
-    condition = var.maintenance == null || (
+    condition = var.maintenance == null ? true : (
       contains(["MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY", "SUNDAY"], upper(var.maintenance.day)) &&
       var.maintenance.hours >= 0 && var.maintenance.hours <= 23 &&
       var.maintenance.minutes >= 0 && var.maintenance.minutes <= 59
-    )
-    error_message = "maintenance: day must be MONDAY..SUNDAY; time must be a valid UTC time."
+    ) ? true : false
+    error_message = "maintenance if set: day must be MONDAY..SUNDAY; time must be a valid UTC time."
   }
 }
