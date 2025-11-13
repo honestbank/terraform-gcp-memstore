@@ -29,6 +29,7 @@ resource "google_redis_instance" "cache" {
   redis_version     = var.redis_version
   display_name      = var.name
   reserved_ip_range = var.reserved_ip_range != null ? var.reserved_ip_range : null
+  secondary_ip_range = var.secondary_ip_range != null ? var.secondary_ip_range : null
 
   dynamic "maintenance_policy" {
     for_each = var.maintenance == null ? [] : [var.maintenance]
