@@ -40,6 +40,12 @@ variable "reserved_ip_range" {
   description = "The reserved IP range to use for the instance"
 }
 
+variable "secondary_ip_range" {
+  type        = string
+  default     = null
+  description = "The secondary IP range to use for the instance"
+}
+
 variable "memory_size" {
   type        = string
   default     = "2"
