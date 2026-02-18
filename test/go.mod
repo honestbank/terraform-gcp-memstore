@@ -1,6 +1,6 @@
 module github.com/honestbank/terraform-gcp-memstore
 
-go 1.21
+go 1.26
 
 require (
 	github.com/gruntwork-io/terratest v0.48.2
